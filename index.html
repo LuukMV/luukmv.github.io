@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pinterest OAuth Callback</title>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            if(code) {
+                // Handle the code - you might send it to your extension or backend for token exchange
+                document.getElementById('code').textContent = code;
+                // For example:
+                // window.opener.postMessage({type: 'pinterest_oauth_code', code: code}, '*');
+            } else {
+                document.getElementById('code').textContent = 'No code received.';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Pinterest OAuth Callback</h1>
+    <p>Authorization code:</p>
+    <pre id="code"></pre>
+</body>
+</html>
+
+// Add redirect page
